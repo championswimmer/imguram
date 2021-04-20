@@ -48,6 +48,7 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3'
     implementation project(path: ':libimgur')
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation "io.coil-kt:coil:1.2.0"
 
     // unit test
     testImplementation 'junit:junit:4.13.2'
