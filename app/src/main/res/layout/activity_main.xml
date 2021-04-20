@@ -9,8 +9,7 @@
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/storiesRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
-            tools:layout_height="75dp" />
+            android:layout_height="90dp" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/nav_view"
@@ -25,7 +24,7 @@
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="75dp"
+            android:layout_marginTop="90dp"
             android:layout_marginBottom="64dp"
             app:defaultNavHost="true"
             app:navGraph="@navigation/mobile_navigation" />

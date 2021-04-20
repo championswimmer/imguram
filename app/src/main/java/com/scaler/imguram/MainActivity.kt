@@ -1,18 +1,22 @@
 package com.scaler.imguram
 
 import android.os.Bundle
-import android.util.Log
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.scaler.imguram.databinding.ActivityMainBinding
+import com.scaler.imguram.ui.stories.StoriesRecyclerAdapter
+import com.scaler.imguram.ui.stories.StoriesViewModel
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private val storiesViewModel by viewModels<StoriesViewModel>()
+    private val storiesAdapter = StoriesRecyclerAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,8 +24,19 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navView: BottomNavigationView = binding.navView
+        binding.storiesRecyclerView.apply {
+            layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+            adapter = storiesAdapter
+        }
 
+        setupNav()
+
+        storiesViewModel.fetchTags()
+
+    }
+
+    private fun setupNav() {
+        val navView: BottomNavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         /*
          NOTE: Not using an action bar in our app for now
@@ -34,8 +49,13 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         ----------------- ACTION BAR CODE ----------------
         */
-
         navView.setupWithNavController(navController)
+    }
 
+    override fun onResume() {
+        super.onResume()
+        storiesViewModel.tags.observe(this) {
+            storiesAdapter.submitList(it)
+        }
     }
 }

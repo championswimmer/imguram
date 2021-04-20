@@ -1,7 +1,9 @@
 package com.scaler.imguram.data
 
 import com.scaler.libimgur.ImgurClient
+import com.scaler.libimgur.models.Gallery
 import com.scaler.libimgur.models.Image
+import com.scaler.libimgur.models.Tag
 import com.scaler.libimgur.params.Section
 
 class ImgurRepository {
@@ -15,5 +17,10 @@ class ImgurRepository {
     suspend fun getTopFeed(): List<Image>? {
         val response = api.getGallery(Section.TOP)
         return response.body()?.data
+    }
+
+    suspend fun getTags() : List<Tag>? {
+        val response = api.getTags()
+        return response.body()?.data?.tags
     }
 }

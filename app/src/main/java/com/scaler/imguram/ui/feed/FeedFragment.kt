@@ -32,7 +32,7 @@ class FeedFragment : Fragment() {
         binding.feedRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.feedRecyclerView.adapter = feedAdapter
 
-        viewModel.feed.observe({ lifecycle }) {
+        viewModel.feed.observe(viewLifecycleOwner) {
             feedAdapter.submitList(it)
         }
 
