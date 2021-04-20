@@ -23,6 +23,8 @@ data class Tag(
     val isPromoted: Boolean?,
     @Json(name = "is_whitelisted")
     val isWhitelisted: Boolean?,
+    @Json(name = "items")
+    val items: List<Image>?,
     @Json(name = "logo_destination_url")
     val logoDestinationUrl: Any?,
     @Json(name = "logo_hash")
@@ -34,5 +36,5 @@ data class Tag(
     @Json(name = "thumbnail_is_animated")
     val thumbnailIsAnimated: Boolean?,
     @Json(name = "total_items")
-    val totalItems: Int
+    val totalItems: Int?
 )

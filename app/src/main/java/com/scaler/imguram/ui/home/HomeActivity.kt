@@ -1,4 +1,4 @@
-package com.scaler.imguram
+package com.scaler.imguram.ui.home
 
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -8,14 +8,13 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.scaler.imguram.R
 import com.scaler.imguram.databinding.ActivityMainBinding
-import com.scaler.imguram.ui.stories.StoriesRecyclerAdapter
-import com.scaler.imguram.ui.stories.StoriesViewModel
 
-class MainActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private val storiesViewModel by viewModels<StoriesViewModel>()
+    private val storiesViewModel by viewModels<HomeViewModel>()
     private val storiesAdapter = StoriesRecyclerAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {

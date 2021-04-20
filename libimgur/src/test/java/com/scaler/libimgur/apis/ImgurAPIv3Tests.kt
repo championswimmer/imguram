@@ -17,6 +17,13 @@ class ImgurAPIv3Tests {
     }
 
     @Test
+    fun `get tag - aww working`() = runBlocking {
+        val response = api.getTagGallery("aww")
+        assertNotNull(response.body())
+
+    }
+
+    @Test
     fun `get galleries - hot working`() = runBlocking {
         val response = api.getGallery(Section.HOT)
         assertNotNull(response.body())

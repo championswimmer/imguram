@@ -1,23 +1,23 @@
-package com.scaler.imguram.ui.stories
+package com.scaler.imguram.ui.story
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.scaler.imguram.data.ImgurRepository
+import com.scaler.libimgur.models.Image
 import com.scaler.libimgur.models.Tag
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class StoriesViewModel : ViewModel() {
+class StoryViewModel : ViewModel() {
     private val repo = ImgurRepository()
-    private val _tags = MutableLiveData<List<Tag>>()
+    private val _images = MutableLiveData<List<Image>>()
 
-    val tags: LiveData<List<Tag>> = _tags
+    val images: LiveData<List<Image>> = _images
 
-    fun fetchTags() = viewModelScope.launch(Dispatchers.IO) {
-        _tags.postValue(repo.getTags())
+    fun fetchTagGallery(tagName: String) = viewModelScope.launch(Dispatchers.IO) {
+        _images.postValue(repo.getTagGallery(tagName))
     }
-
 
 }

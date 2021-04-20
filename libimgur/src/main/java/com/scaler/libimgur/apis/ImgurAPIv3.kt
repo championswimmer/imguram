@@ -1,6 +1,7 @@
 package com.scaler.libimgur.apis
 
 import com.scaler.libimgur.models.GalleryResponse
+import com.scaler.libimgur.models.TagResponse
 import com.scaler.libimgur.models.TagsResponse
 import com.scaler.libimgur.params.Section
 import retrofit2.Call
@@ -19,4 +20,9 @@ interface ImgurAPIv3 {
 
     @GET("tags")
     suspend fun getTags(): Response<TagsResponse>
+
+    @GET("gallery/t/{tag}")
+    suspend fun getTagGallery(
+        @Path("tag") tag: String
+    ): Response<TagResponse>
 }
