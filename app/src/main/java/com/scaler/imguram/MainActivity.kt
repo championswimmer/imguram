@@ -9,7 +9,6 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.scaler.imguram.databinding.ActivityMainBinding
-import com.scaler.libimgur.ImgurAPI
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,7 +30,5 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        val imgurAPI = ImgurAPI()
-        Log.d("IMGUR", "a = ${imgurAPI.a}")
     }
 }
