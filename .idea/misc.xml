@@ -10,9 +10,11 @@
         <entry key="app/src/main/res/drawable/ic_nav_fire.xml" value="0.35625" />
         <entry key="app/src/main/res/drawable/ic_nav_line_chart.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/activity_story.xml" value="0.16271442986881937" />
         <entry key="app/src/main/res/layout/fragment_feed.xml" value="0.11481481481481481" />
         <entry key="app/src/main/res/layout/list_item_gallery_image.xml" value="0.335" />
         <entry key="app/src/main/res/layout/list_item_story_head.xml" value="0.75" />
+        <entry key="app/src/main/res/layout/page_item_story.xml" value="0.375" />
       </map>
     </option>
   </component>

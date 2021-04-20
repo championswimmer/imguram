@@ -10,8 +10,8 @@
 
     <androidx.cardview.widget.CardView
             android:layout_margin="3dp"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="@dimen/story_head_image_size"
+            android:layout_height="@dimen/story_head_image_size"
             app:cardCornerRadius="30dp">
 
         <ImageView
@@ -19,7 +19,7 @@
                 android:id="@+id/storyHeadImageView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:background="@android:color/holo_blue_dark" />
+                android:background="@android:color/darker_gray"/>
 
     </androidx.cardview.widget.CardView>
 

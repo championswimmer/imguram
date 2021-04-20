@@ -1,17 +1,21 @@
 package com.scaler.imguram.ui.story
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.Coil
 import coil.ImageLoader
 import coil.decode.GifDecoder
 import coil.decode.ImageDecoderDecoder
 import coil.load
+import coil.request.ImageRequest
 import com.scaler.imguram.databinding.PageItemStoryBinding
 import com.scaler.libimgur.models.Image
 
@@ -48,5 +52,23 @@ class StoryPagerAdapter() :
             holder.binding.storyImageView.load(imgUrl)
             holder.binding.imageUrlTextView.text = imgUrl
         }
+        cacheNext(position, holder.binding.storyImageView)
+    }
+
+    private fun cacheNext(position: Int, imageView: ImageView) {
+        val image = try { getItem(position + 1) } catch (e: Exception) { null }
+
+        val imgUrl = if (image?.isAlbum == true && image.imagesCount != 0) {
+            image.images!![0].link!!
+        } else {
+            image?.link
+        }
+        imgUrl?.let {
+            val request = ImageRequest.Builder(imageView.context)
+                .data(imgUrl)
+                .build()
+            Coil.imageLoader(imageView.context).enqueue(request)
+        }
+
     }
 }

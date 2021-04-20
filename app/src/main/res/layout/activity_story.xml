@@ -10,4 +10,17 @@
             android:id="@+id/storyViewPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+    <View
+            android:background="@color/white_transparent_50"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"/>
+    <View
+            android:id="@+id/progressView"
+            android:scaleX="0"
+            android:background="@color/white"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"/>
+
 </FrameLayout>
